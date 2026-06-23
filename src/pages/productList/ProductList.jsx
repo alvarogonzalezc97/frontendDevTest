@@ -1,12 +1,15 @@
-  import Header from '../../components/Header'
+import Header from '../../components/Header'
+ import { useCart } from '../../hooks/useCart'
 
   function ProductList() {
+
+    const { cart } = useCart();
 
     return (
       <div>
           <Header 
             breadcrumbs={[{ label: 'Home', to: '/' }]} 
-            showCart = {true}
+            cartItems={cart.length}
           />
 
         <div>
