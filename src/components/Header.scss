@@ -1,0 +1,46 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: 7rem;
+  background-color: $color-bg;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+
+  .nav-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: $color-text;
+      border-radius: 6em;
+      img{
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    .breadcrumb-container{
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    
+      a {
+      color: $color-blue;
+    
+        &:hover {
+          color: $color-blue-2;
+        }
+      }
+
+    }
+  }
+
+  .cart-container {
+    color: $color-blue;
+  }
+}
