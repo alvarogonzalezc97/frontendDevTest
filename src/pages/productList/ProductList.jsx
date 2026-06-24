@@ -48,9 +48,9 @@ function ProductList() {
               />
             ))
             : (
-              <div className="product-no-results">
+              <div className="product-no-results-container">
                 <ExclamationTriangleIcon />
-                <p>No products found</p>
+                <p className='product-no-results'>No products found</p>
               </div>
             )}
         </div>
