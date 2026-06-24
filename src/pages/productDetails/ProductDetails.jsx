@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
 import { getProductDetails } from '../../http/product.api'
 import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard';
+import ProductActions from '../../components/product/actions/ProductActions';
 import './ProductDetails.scss'
 
 function ProductDetails() {
@@ -55,8 +56,11 @@ function ProductDetails() {
               </div>
 
               <div className="product-details-actions" data-testid='product-details-actions'>
-                Actions
-
+                <ProductActions
+                  productId={product.id}
+                  colors={product.options.colors}
+                  storages={product.options.storages}
+              />
               </div>
             </div>
           </>

@@ -19,3 +19,23 @@ export async function getProductDetails(id) {
 
   return res.json()
 }
+
+export async function addProductToCart({ id, colorCode, storageCode }) {
+  const res = await fetch(`${BASE_URL}/api/cart`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id,
+      colorCode,
+      storageCode,
+    }),
+  });
+
+  if (!res.ok) {
+    throw new Error('Error adding product to cart');
+  }
+
+  return res.json();
+}
