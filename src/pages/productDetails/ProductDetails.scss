@@ -1,0 +1,34 @@
+.product-details-container {
+    background-color: $color-bg;
+    padding: 0 2rem;
+
+    .product-details-content {
+        display: flex;
+        gap: 5rem;
+        padding: 1rem 0;
+        justify-content: center;
+
+        .product-details-image {
+            width: 20rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .product-details-info {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            .product-details-description, .product-details-actions {
+                background: white;
+                padding: 1rem;
+                border-radius: 1rem;
+                border: 1px solid #eee;
+            }
+        }
+    }
+
+}

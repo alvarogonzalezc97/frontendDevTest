@@ -9,3 +9,13 @@ export async function getProducts() {
 
   return res.json()
 }
+
+export async function getProductDetails(id) {
+  const res = await fetch(`${BASE_URL}/api/product/${id}`)
+
+  if (!res.ok) {
+    throw new Error('Error fetching products')
+  }
+
+  return res.json()
+}

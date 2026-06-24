@@ -2,7 +2,7 @@ import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
 import { useState, useEffect, useMemo } from 'react'
 import { getProducts } from '../../http/product.api'
-import ProductCard from '../../components/product/ProductCard';
+import ProductCard from '../../components/product/listCard/ProductCard';
 import SearchBar from '../../components/search/SearchBar';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import './ProductList.scss'
@@ -28,7 +28,7 @@ function ProductList() {
   return (
     <div className="product-list-container">
       <Header
-        breadcrumbs={[{ label: 'Home', to: '/' }]}
+        breadcrumbs={[{ label: 'Product list', to: '/' }]}
         cartItems={cart.length}
       />
 
