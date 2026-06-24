@@ -4,8 +4,8 @@ import SearchBar from './SearchBar'
 
 function renderSearchBar(props = {}) {
     return render(
-        <SearchBar 
-            onSearch={props.onSearch} 
+        <SearchBar
+            onSearch={props.onSearch}
             placeholder={props.placeholder}
         />
     )
@@ -36,13 +36,27 @@ describe('SearchBar', () => {
         expect(screen.getByPlaceholderText('Search by brand or model')).toBeInTheDocument()
     })
 
-    it('calls onSearch when input changes', async () => {
+    it('calls onSearch when input changes', () => {
         const onSearch = vi.fn()
         renderSearchBar({ onSearch })
 
         fireEvent.change(screen.getByRole('textbox'), { target: { value: 'acer' } })
-        // await userEvent.type(screen.getByRole('textbox'), 'acer')
 
         expect(onSearch).toHaveBeenCalledWith('acer')
     })
+
+    it('calls onSearch on every keystroke', () => {
+        const onSearch = vi.fn()
+        renderSearchBar({ onSearch })
+
+        const input = screen.getByRole('textbox')
+
+        fireEvent.change(input, { target: { value: 'a' } })
+        fireEvent.change(input, { target: { value: 'ac' } })
+        fireEvent.change(input, { target: { value: 'ace' } })
+
+        expect(onSearch).toHaveBeenCalledTimes(3)
+        expect(onSearch).toHaveBeenLastCalledWith('ace')
+    })
+
 })

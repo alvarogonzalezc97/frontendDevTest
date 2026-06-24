@@ -1,7 +1,7 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import './SearchBar.scss'
 
-function SearchBar({className = "", placeholder, onSearch }) {
+function SearchBar({ className = "", placeholder, onSearch }) {
   return (
     <label className={`${className} search-bar-container`} data-testid='search-bar-container'>
       <MagnifyingGlassIcon className="search-bar-icon" data-testid='search-bar-icon' />

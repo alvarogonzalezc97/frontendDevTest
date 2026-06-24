@@ -6,7 +6,9 @@ import Header from './Header'
 function renderHeader(props = {}) {
   return render(
     <MemoryRouter>
-      <Header {...props} />
+      <Header
+        breadcrumbs={props.breadcrumbs}
+        cartItems={props.cartItems} />
     </MemoryRouter>
   )
 }

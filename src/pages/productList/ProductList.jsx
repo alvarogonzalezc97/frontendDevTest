@@ -42,9 +42,9 @@ function ProductList() {
         <div className="product-grid">
           {filteredProducts.length > 0
             ? filteredProducts.map(product => (
-              <ProductCard 
+              <ProductCard
                 key={product.id}
-                product={product} 
+                product={product}
               />
             ))
             : (

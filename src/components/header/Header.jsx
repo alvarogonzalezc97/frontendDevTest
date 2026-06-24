@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
-import phoneStoreLogo from '../../assets/phone_store_logo_2.png'
+import phoneStoreLogo from '../../assets/phone_store_logo.png'
 import './Header.scss'
 
 function Header({ className = "", breadcrumbs = [], cartItems = 0 }) {
