@@ -7,8 +7,8 @@ function ProductDetails() {
 
   return (
     <div>
-      <Header 
-        breadcrumbs={[{ label: 'Home', to: '/' }]} 
+      <Header
+        breadcrumbs={[{ label: 'Home', to: '/' }]}
         cartItems={cart.length}
       />
 

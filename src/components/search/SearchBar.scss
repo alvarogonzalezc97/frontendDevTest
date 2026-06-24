@@ -1,0 +1,32 @@
+.search-bar-container {
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 0.6rem 1rem;
+  background-color: $color-surface;
+  cursor: text;
+
+  &:focus-within {
+    border-color: $color-accent;
+  }
+
+  .search-bar-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $color-text-muted;
+  }
+
+  .search-bar {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: $font-size-base;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { getProducts } from '../../http/product.api'
 import ProductCard from '../../components/product/ProductCard';
 import SearchBar from '../../components/search/SearchBar';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import './ProductList.scss'
 
 function ProductList() {
@@ -18,32 +19,44 @@ function ProductList() {
       .catch(console.error)
   }, [])
 
-  const filteredProducts = useMemo(() => 
+  const filteredProducts = useMemo(() =>
     products.filter(product =>
       product.brand.toLowerCase().includes(search.toLowerCase()) ||
       product.model.toLowerCase().includes(search.toLowerCase())
     ), [products, search])
 
-    return (
-      <div className="product-list-container">
-          <Header 
-            breadcrumbs={[{ label: 'Home', to: '/' }]} 
-            cartItems={cart.length}
-          />
+  return (
+    <div className="product-list-container">
+      <Header
+        breadcrumbs={[{ label: 'Home', to: '/' }]}
+        cartItems={cart.length}
+      />
 
-        <div className="product-list-content">
-          <SearchBar onSearch={setSearch} />
-          <div className="product-grid">
-            {filteredProducts.length > 0 
-                ? filteredProducts.map(product => (
-                    <ProductCard key={product.id} product={product} />
-                  ))
-                : <p className="no-results">No products found</p>
-              }
-          </div>
+      <div className="product-list-content">
+        <SearchBar
+          className='product-list-searchBar'
+          placeholder='Search by brand or model'
+          onSearch={setSearch}
+        />
+
+        <div className="product-grid">
+          {filteredProducts.length > 0
+            ? filteredProducts.map(product => (
+              <ProductCard 
+                key={product.id}
+                product={product} 
+              />
+            ))
+            : (
+              <div className="product-no-results">
+                <ExclamationTriangleIcon />
+                <p>No products found</p>
+              </div>
+            )}
         </div>
       </div>
-    )
+    </div>
+  )
 }
 
 export default ProductList

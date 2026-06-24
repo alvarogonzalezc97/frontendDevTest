@@ -1,13 +1,18 @@
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import './SearchBar.scss'
 
-function SearchBar({ onSearch }) {
+function SearchBar({className = "", placeholder, onSearch }) {
   return (
-    <input
-      className="search-bar"
-      type="text"
-      placeholder="Search by brand or model..."
-      onChange={(e) => onSearch(e.target.value)}
-    />
+    <label  className={`${className} search-bar-container`}>
+      <MagnifyingGlassIcon className="search-bar-icon" />
+      <input
+        id="search-bar"
+        className="search-bar"
+        type="text"
+        placeholder={placeholder}
+        onChange={(e) => onSearch(e.target.value)}
+      />
+    </label >
   )
 }
 
