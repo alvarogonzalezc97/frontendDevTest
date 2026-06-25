@@ -1,0 +1,39 @@
+{
+  "header":{
+    "language":{
+      "english": "English",
+      "spanish": "Spanish"
+    }
+  },
+  "productList": {
+      "searchBarPlaceholder": "Search by brand or model",
+      "noProductsFound": "No products found",
+      "breadcrumb":{
+          "label": "Product list"
+      }
+  },
+  "productDetails": {
+    "brand": "Brand",
+    "model": "Model",
+    "price": "Price",
+    "cpu": "CPU",
+    "ram": "RAM",
+    "os": "OS",
+    "screen": "Screen",
+    "battery": "Battery",
+    "primaryCamera": "Primary Camera",
+    "secondaryCamera": "Secondary Camera",
+    "dimensions": "Dimensions",
+    "weight": "Weight",
+    "backToProducts": "Back to the product list",
+    "notExist": "Product not exist",
+    "breadcrumb":{
+        "label": "Product details"
+    }
+  },
+  "productActions": {
+    "color": "Color",
+    "storage": "Storage",
+    "addButton": "Add"
+  }
+}

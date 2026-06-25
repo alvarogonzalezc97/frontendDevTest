@@ -6,10 +6,12 @@ import { getProductDetails } from '../../http/product.api'
 import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard';
 import ProductActions from '../../components/product/actions/ProductActions';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
+import { useTranslation } from 'react-i18next';
 import './ProductDetails.scss'
 
 function ProductDetails() {
 
+  const { t } = useTranslation();
   const { id } = useParams();
   const { cart } = useCart();
   const [product, setProduct] = useState(null);
@@ -22,31 +24,31 @@ function ProductDetails() {
 
   function getFields(){
     return [
-        { label: 'Brand', value: product.brand },
-        { label: 'Model', value: product.model },
-        { label: 'Price', value: `${product.price} €` },
-        { label: 'CPU', value: product.cpu },
-        { label: 'RAM', value: product.ram  },
-        { label: 'OS', value: product.os },
-        { label: 'Screen', value: product.displayResolution },
-        { label: 'Battery', value: product.battery },
-        { label: 'Primary Camera', value: product.primaryCamera },
-        { label: 'Secondary Camera', value: product.secondaryCmera },
-        { label: 'Dimensions', value: product.dimentions },
-        { label: 'Weight', value: product.weight }
+        { label: t('productDetails.brand'), value: product.brand },
+        { label: t('productDetails.model'), value: product.model },
+        { label: t('productDetails.price'), value: `${product.price} €` },
+        { label: t('productDetails.cpu'), value: product.cpu },
+        { label: t('productDetails.ram'), value: product.ram  },
+        { label: t('productDetails.os'), value: product.os },
+        { label: t('productDetails.screen'), value: product.displayResolution },
+        { label: t('productDetails.battery'), value: product.battery },
+        { label: t('productDetails.primaryCamera'), value: product.primaryCamera },
+        { label: t('productDetails.secondaryCamera'), value: product.secondaryCmera },
+        { label: t('productDetails.dimensions'), value: product.dimentions },
+        { label: t('productDetails.weight'), value: product.weight }
       ]
   }
 
   return (
     <div className="product-details-container" data-testid='product-details-container' >
       <Header
-        breadcrumbs={[{ label: 'Product details', to: '/' }]}
+        breadcrumbs={[{ label: t('productDetails.breadcrumb.label'), to: '/' }]}
         cartItems={cart.length}
       />
 
       <Link to="/" className="back-link">
         <ArrowLeftIcon />
-        Back to products
+        {t('productDetails.backToProducts')}
       </Link>
 
       <div className="product-details-content" data-testid='product-details-content'>
@@ -71,7 +73,7 @@ function ProductDetails() {
             </div>
           </>
           ):(
-                <p>Product not exist</p>
+                <p>{t('productDetails.notExist')}</p>
             )}
       </div>
     </div >

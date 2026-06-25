@@ -13,6 +13,7 @@
         width: 100%;
         max-width: 8rem;
         align-self: flex-end;
+        font-size: $font-size-base;
 
         &:disabled {
             opacity: 0.5;

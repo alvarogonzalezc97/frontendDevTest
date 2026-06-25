@@ -1,9 +1,22 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { describe, it, expect } from 'vitest'
 import Header from './Header'
 
+const changeLanguageMock = vi.fn()
+
+vi.mock('react-i18next', () => ({
+  useTranslation: () => ({
+    t: (k) => k,
+    i18n: {
+      language: 'en',
+      changeLanguage: changeLanguageMock
+    }
+  })
+}))
+
 function renderHeader(props = {}) {
+
   return render(
     <MemoryRouter>
       <Header
@@ -75,5 +88,35 @@ describe('Header', () => {
 
     const cartCount = screen.getByTestId('cart-count')
     expect(cartCount).toHaveTextContent('5')
+  })
+
+  it('render language buttons', () => {
+    renderHeader()
+
+    expect(screen.getByTestId('language-switcher-english')).toBeInTheDocument()
+    expect(screen.getByTestId('language-switcher-spanish')).toBeInTheDocument()
+  })
+
+  it('mark english as active per default', () => {
+    renderHeader()
+
+    expect(screen.getByTestId('language-switcher-english')).toHaveClass('active')
+    expect(screen.getByTestId('language-switcher-spanish')).not.toHaveClass('active')
+  })
+
+  it('changes language to spanish when spanish button is clicked', () => {
+    renderHeader()
+
+    fireEvent.click(screen.getByTestId('language-switcher-spanish'))
+
+    expect(changeLanguageMock).toHaveBeenCalledWith('es')
+  })
+
+  it('should change language to english when english button is clicked', () => {
+    renderHeader()
+
+    fireEvent.click(screen.getByTestId('language-switcher-english'))
+
+    expect(changeLanguageMock).toHaveBeenCalledWith('en')
   })
 })

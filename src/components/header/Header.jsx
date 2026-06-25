@@ -1,9 +1,16 @@
 import { Link, useLocation } from 'react-router'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import phoneStoreLogo from '../../assets/phone_store_logo.png'
+import { useTranslation } from 'react-i18next'
 import './Header.scss'
 
 function Header({ className = "", breadcrumbs = [], cartItems = 0 }) {
+  const { t, i18n } = useTranslation()
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang)
+  }
+
   return (
     <header className={`${className} header-container`}>
       <div className='logo-container' data-testid='nav-container'>
@@ -28,11 +35,31 @@ function Header({ className = "", breadcrumbs = [], cartItems = 0 }) {
         ))}
       </nav>
 
-      <div className='cart-container' data-testid='cart-container'>
-        <ShoppingCartIcon />
-        <span className='cart-count' data-testid='cart-count'>
-          {cartItems}
-        </span>
+      <div className='actions-container' data-testid='actions-container'>
+        <div className='language-switcher' data-testid='language-switcher'>
+          <button
+            className={`language-switcher-english ${i18n.language === 'en' ? 'active' : ''}`}
+            data-testid='language-switcher-english'
+            onClick={() => changeLanguage('en')}
+          >
+            {t('header.language.english')}
+          </button>
+
+          <button
+            className={`language-switcher-spanish ${i18n.language === 'es' ? 'active' : ''}`}
+            data-testid='language-switcher-spanish'
+            onClick={() => changeLanguage('es')}
+          >
+            {t('header.language.spanish')}
+          </button>
+        </div>
+
+        <div className='cart-container' data-testid='cart-container'>
+          <ShoppingCartIcon />
+          <span className='cart-count' data-testid='cart-count'>
+            {cartItems}
+          </span>
+        </div>
       </div>
 
     </header>

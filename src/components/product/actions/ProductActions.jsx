@@ -2,9 +2,11 @@ import { addProductToCart } from '../../../http/product.api'
 import Selector from '../../../components/selector/Selector'
 import { useCart } from '../../../hooks/useCart'
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next';
 import './ProductActions.scss';
 
 function ProductActions({ productId, colors, storages }) {
+    const { t } = useTranslation();
     const [selectedColor, setSelectedColor] = useState(colors.length >= 1 ? colors[0].code : undefined);
     const [selectedStorage, setSelectedStorage] = useState(storages.length >= 1 ? storages[0].code : undefined);
 
@@ -30,7 +32,7 @@ function ProductActions({ productId, colors, storages }) {
         <div className="product-actions-container" data-testid='actions-container'>
             <Selector
                 className="selector-color"
-                label="Color"
+                label={t('productActions.color')}
                 options={colors}
                 value={selectedColor}
                 onChange={setSelectedColor}
@@ -38,7 +40,7 @@ function ProductActions({ productId, colors, storages }) {
 
             <Selector
                 className="selector-storage"
-                label="Storage"
+                label={t('productActions.storage')}
                 options={storages}
                 value={selectedStorage}
                 onChange={setSelectedStorage}
@@ -50,7 +52,7 @@ function ProductActions({ productId, colors, storages }) {
                 disabled={isDisabled}
                 data-testid='product-actions-add-button'
             >
-                Add
+                {t('productActions.addButton')}
             </button>
         </div>
     );
