@@ -2,7 +2,7 @@ import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
 import { useParams, Link } from 'react-router'
 import { useState, useEffect } from 'react'
-import { getProductDetails } from '../../http/product.api'
+import { getProductDetails } from '../../services/product.service'
 import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard';
 import ProductActions from '../../components/product/actions/ProductActions';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'

@@ -2,7 +2,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import ProductActions from './ProductActions'
 
-vi.mock('../../../http/product.api', () => ({
+vi.mock('../../../services/product.service', () => ({
     addProductToCart: vi.fn().mockResolvedValue({ count: 1 })
 }))
 

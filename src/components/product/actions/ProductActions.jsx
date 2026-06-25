@@ -1,4 +1,4 @@
-import { addProductToCart } from '../../../http/product.api'
+import { addProductToCart } from '../../../services/product.service'
 import Selector from '../../../components/selector/Selector'
 import { useCart } from '../../../hooks/useCart'
 import { useState, useEffect } from 'react'

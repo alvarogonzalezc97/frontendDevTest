@@ -1,7 +1,7 @@
 import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
 import { useState, useEffect, useMemo } from 'react'
-import { getProducts } from '../../http/product.api'
+import { getProducts } from '../../services/product.service'
 import ProductCard from '../../components/product/listCard/ProductCard';
 import SearchBar from '../../components/search/SearchBar';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
