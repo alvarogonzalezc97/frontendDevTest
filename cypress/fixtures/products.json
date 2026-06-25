@@ -1,0 +1,58 @@
+[
+    {
+        "id": "ZmGrkLRPXOTpxsU4jjAcv",
+        "brand": "Acer",
+        "model": "Iconia Talk S",
+        "price": "170",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "cGjFJlmqNPIwU59AOcY8H",
+        "brand": "Acer",
+        "model": "Liquid Z6 Plus",
+        "price": "250",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "8hKbH2UHPM_944nRHYN1n",
+        "brand": "Acer",
+        "model": "Liquid Z6",
+        "price": "120",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "xyPoqGJxYR4Nn3yVGQcfI",
+        "brand": "Acer",
+        "model": "Iconia Tab 10 A3-A40",
+        "price": "230",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "ND1elEt4nqZrCeFflDUZ2",
+        "brand": "Acer",
+        "model": "Liquid X2",
+        "price": "230",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "pMZMhe_ZaAPZoaCCtlDrg",
+        "brand": "Acer",
+        "model": "Liquid Jade 2",
+        "price": "",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "ke-gsQbO8qH9PQ-zcdiAJ",
+        "brand": "Acer",
+        "model": "Liquid Zest Plus",
+        "price": "200",
+        "imgUrl": "phone_store_logo.png"
+    },
+    {
+        "id": "meQvyTcXACAwWn3wCKSw6",
+        "brand": "Acer",
+        "model": "Liquid Zest",
+        "price": "110",
+        "imgUrl": "phone_store_logo.png"
+    }
+]

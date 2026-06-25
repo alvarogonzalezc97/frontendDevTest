@@ -9,7 +9,7 @@ function Selector({ label, options, value, onChange, className="" }) {
 
             <select
                 className="selector-select"
-                data-testid='selector-select'
+                data-testid={`${className}-select`}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
             >

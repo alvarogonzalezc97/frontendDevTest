@@ -51,7 +51,7 @@ function ProductList() {
             : (
               <div className="product-no-results-container">
                 <ExclamationTriangleIcon />
-                <p className='product-no-results'>{t('productList.noProductsFound')}</p>
+                <p className='product-no-results' data-testid='product-no-results'>{t('productList.noProductsFound')}</p>
               </div>
             )}
         </div>
