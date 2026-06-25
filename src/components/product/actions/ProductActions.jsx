@@ -27,8 +27,9 @@ function ProductActions({ productId, colors, storages }) {
     };
 
     return (
-        <div className="product-actions-container">
+        <div className="product-actions-container" data-testid='actions-container'>
             <Selector
+                className="selector-color"
                 label="Color"
                 options={colors}
                 value={selectedColor}
@@ -36,6 +37,7 @@ function ProductActions({ productId, colors, storages }) {
             />
 
             <Selector
+                className="selector-storage"
                 label="Storage"
                 options={storages}
                 value={selectedStorage}
@@ -46,6 +48,7 @@ function ProductActions({ productId, colors, storages }) {
                 className="product-actions-add-button"
                 onClick={handleAddToCart}
                 disabled={isDisabled}
+                data-testid='product-actions-add-button'
             >
                 Add
             </button>

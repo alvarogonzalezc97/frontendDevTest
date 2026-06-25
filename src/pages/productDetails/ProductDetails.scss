@@ -2,6 +2,24 @@
     background-color: $color-bg;
     padding: 0 2rem;
 
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: $color-text-muted;
+        font-size: $font-size-sm-base;
+        padding: .5em 0;
+
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        &:hover {
+            color: $color-accent;
+        }
+    }
+
     .product-details-content {
         display: flex;
         gap: 5rem;

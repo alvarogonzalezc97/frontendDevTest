@@ -1,10 +1,11 @@
 import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
-import { useParams } from 'react-router'
+import { useParams, Link } from 'react-router'
 import { useState, useEffect } from 'react'
 import { getProductDetails } from '../../http/product.api'
 import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard';
 import ProductActions from '../../components/product/actions/ProductActions';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import './ProductDetails.scss'
 
 function ProductDetails() {
@@ -42,6 +43,11 @@ function ProductDetails() {
         breadcrumbs={[{ label: 'Product details', to: '/' }]}
         cartItems={cart.length}
       />
+
+      <Link to="/" className="back-link">
+        <ArrowLeftIcon />
+        Back to products
+      </Link>
 
       <div className="product-details-content" data-testid='product-details-content'>
         {product ? (

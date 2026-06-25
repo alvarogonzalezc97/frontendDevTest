@@ -1,13 +1,18 @@
 import './Selector.scss';
 
-function Selector({ label, options, value, onChange }) {
+function Selector({ label, options, value, onChange, className="" }) {
     return (
-        <div className="selector-container">
-            <label className="selector-label">
+        <div className={`${className} selector-container`} data-testid={`${className}`}>
+            <label className="selector-label" data-testid='selector-label'>
                 {label}
             </label>
 
-            <select className="selector-select" value={value} onChange={(e) => onChange(e.target.value)}>
+            <select
+                className="selector-select"
+                data-testid='selector-select'
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+            >
                 {options.map((option) => (
                     <option key={option.code} value={option.code}>
                         {option.name || option.capacity}

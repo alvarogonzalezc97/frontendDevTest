@@ -1,32 +1,26 @@
 import './ProductDetailsCard.scss'
 
-// Refactorizar esto
 function ProductDetailsCard({ fields }) {
+
     function cleanedFields(fields) {
-        return fields.map((field) => {
-            if (Array.isArray(field.value)) {
-                return {
-                    ...field,
-                    value: cleanArray(field.value),
-                };
-            }
+        return fields.map(cleanField).filter(Boolean)
+    }
+    function cleanField(field) {
+        if (Array.isArray(field.value)) {
+            const cleaned = cleanArray(field.value)
+            return cleaned.length > 0 ? { ...field, value: cleaned } : null
+        }
+        return isEmpty(field.value) ? null : field
+    }
 
-            const isEmpty =
-                field.value === null ||
-                field.value === undefined ||
-                (typeof field.value === 'string' && field.value.trim() === '');
-
-            return isEmpty ? null : field;
-        }).filter(Boolean);
+    function isEmpty(value) {
+        return value === null ||
+            value === undefined ||
+            (typeof value === 'string' && value.trim() === '')
     }
 
     function cleanArray(array) {
-        return array.filter(
-            (value) =>
-                value !== null &&
-                value !== undefined &&
-                !(typeof value === 'string' && value.trim() === '')
-        );
+        return array.filter(value => !isEmpty(value))
     }
 
     return (
