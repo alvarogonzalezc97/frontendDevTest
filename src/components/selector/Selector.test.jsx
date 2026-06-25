@@ -35,7 +35,7 @@ describe('Selector', () => {
   it('renders select', () => {
     renderSelector()
 
-    expect(screen.getByTestId('selector-select')).toBeInTheDocument()
+    expect(screen.getByTestId('selector-color-select')).toBeInTheDocument()
   })
 
   it('renders all options', () => {
@@ -48,14 +48,14 @@ describe('Selector', () => {
   it('renders default selected value', () => {
     renderSelector()
 
-    expect(screen.getByTestId('selector-select')).toHaveValue('1')
+    expect(screen.getByTestId('selector-color-select')).toHaveValue('1')
   })
 
   it('calls onChange when selection changes', () => {
     const onChange = vi.fn()
     renderSelector({ onChange })
 
-    fireEvent.change(screen.getByTestId('selector-select'), { target: { value: '2' } })
+    fireEvent.change(screen.getByTestId('selector-color-select'), { target: { value: '2' } })
 
     expect(onChange).toHaveBeenCalledWith('2')
   })
