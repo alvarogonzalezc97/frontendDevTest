@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router'
 import { router } from './router/router'
-import { CartProvider } from './context/CartContext'
+import { CartProvider } from './context/CartProvider'
 
 function App() {
   return (

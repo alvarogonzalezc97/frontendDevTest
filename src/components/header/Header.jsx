@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router'
+import { Link } from 'react-router'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
 import phoneStoreLogo from '../../assets/phone_store_logo.webp'

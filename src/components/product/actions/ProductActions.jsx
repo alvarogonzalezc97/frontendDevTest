@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { addProductToCart } from '../../../api/product.api'
 import Selector from '../../../components/selector/Selector'

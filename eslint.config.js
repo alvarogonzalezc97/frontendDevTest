@@ -18,4 +18,18 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    files: ['cypress/**/*.cy.js', 'cypress.config.js'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        cy: true,
+        describe: true,
+        it: true,
+        beforeEach: true,
+        expect: true,
+        Cypress: true,
+      },
+    },
+  },
 ])

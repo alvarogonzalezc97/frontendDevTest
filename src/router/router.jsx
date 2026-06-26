@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router'
+import { createBrowserRouter } from 'react-router'
 import ProductList from '../pages/productList/ProductList'
 import ProductDetails from '../pages/productDetails/ProductDetails'
 import NotFound from '../pages/notFound/NotFound'

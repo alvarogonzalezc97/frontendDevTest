@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next'
 import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'

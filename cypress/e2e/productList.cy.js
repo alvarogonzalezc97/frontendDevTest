@@ -28,7 +28,7 @@ describe('Product List Page', () => {
 
     cy.get('[data-testid="search-bar"]').type('nonexistingproduct')
 
-    cy.get('[data-testid="product-no-results"]').should('be.visible')
+    cy.get('[data-testid="product-list-notFound-container"]').should('be.visible')
   })
 
   it('navigates to product details when clicking a product card', () => {

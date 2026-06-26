@@ -3,14 +3,19 @@ import { describe, it, expect } from 'vitest'
 import NotFound from './NotFound'
 
 function renderNotFound(props = {}) {
-  return render(<NotFound message="No products found" {...props} />)
+  return render(<NotFound
+    className='product-list-notFound'
+    message="No products found"
+    {...props}
+  />
+  )
 }
 
 describe('NotFound', () => {
   it('renders container', () => {
     renderNotFound()
 
-    expect(screen.getByTestId('not-found-container')).toBeInTheDocument()
+    expect(screen.getByTestId('product-list-notFound-container')).toBeInTheDocument()
   })
 
   it('renders icon', () => {

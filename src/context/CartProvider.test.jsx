@@ -1,11 +1,15 @@
 import { renderHook, act } from '@testing-library/react'
-import { describe, it, expect } from 'vitest'
-import { CartProvider } from './CartContext'
+import { describe, it, expect, beforeEach } from 'vitest'
+import { CartProvider } from './CartProvider'
 import { useCart } from '../hooks/useCart'
 
 const wrapper = ({ children }) => <CartProvider>{children}</CartProvider>
 
 describe('CartContext', () => {
+  beforeEach(() => {
+    localStorage.clear()
+  })
+
   it('starts with empty cart', () => {
     const { result } = renderHook(() => useCart(), { wrapper })
 
