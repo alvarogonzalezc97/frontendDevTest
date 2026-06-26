@@ -9,12 +9,7 @@ const mockFields = [
 ]
 
 function renderProductDetailsCard(props = {}) {
-  return render(
-    <ProductDetailsCard 
-        fields={mockFields} 
-        {...props} 
-    />
-  )
+  return render(<ProductDetailsCard fields={mockFields} {...props} />)
 }
 
 describe('ProductDetailsCard', () => {
@@ -42,7 +37,7 @@ describe('ProductDetailsCard', () => {
 
   it('does not render fields with null value', () => {
     renderProductDetailsCard({
-      fields: [{ label: 'Battery', value: null }]
+      fields: [{ label: 'Battery', value: null }],
     })
 
     expect(screen.queryByText('Battery:')).not.toBeInTheDocument()
@@ -50,7 +45,7 @@ describe('ProductDetailsCard', () => {
 
   it('does not render fields with undefined value', () => {
     renderProductDetailsCard({
-      fields: [{ label: 'Battery', value: undefined }]
+      fields: [{ label: 'Battery', value: undefined }],
     })
 
     expect(screen.queryByText('Battery:')).not.toBeInTheDocument()
@@ -58,7 +53,7 @@ describe('ProductDetailsCard', () => {
 
   it('does not render fields with empty string value', () => {
     renderProductDetailsCard({
-      fields: [{ label: 'Battery', value: "" }]
+      fields: [{ label: 'Battery', value: '' }],
     })
 
     expect(screen.queryByText('Battery:')).not.toBeInTheDocument()
@@ -66,7 +61,7 @@ describe('ProductDetailsCard', () => {
 
   it('renders array values as list', () => {
     renderProductDetailsCard({
-      fields: [{ label: 'Cameras', value: ['5 MP', '2 MP'] }]
+      fields: [{ label: 'Cameras', value: ['5 MP', '2 MP'] }],
     })
 
     expect(screen.getByText('5 MP')).toBeInTheDocument()
@@ -75,7 +70,7 @@ describe('ProductDetailsCard', () => {
 
   it('does not render empty array values', () => {
     renderProductDetailsCard({
-      fields: [{ label: 'Cameras', value: ['', null, undefined] }]
+      fields: [{ label: 'Cameras', value: ['', null, undefined] }],
     })
 
     expect(screen.queryByText('Cameras:')).not.toBeInTheDocument()

@@ -3,25 +3,22 @@ import { useCart } from '../../hooks/useCart'
 import { useParams, Link } from 'react-router'
 import { useState, useEffect } from 'react'
 import { getProductDetails } from '../../api/product.api'
-import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard';
-import ProductActions from '../../components/product/actions/ProductActions';
-import NotFound from '../../components/notFound/NotFound';
+import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard'
+import ProductActions from '../../components/product/actions/ProductActions'
+import NotFound from '../../components/notFound/NotFound'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import './ProductDetails.scss'
 
 function ProductDetails() {
-
-  const { t } = useTranslation();
-  const { id } = useParams();
-  const { cart } = useCart();
-  const [product, setProduct] = useState(null);
+  const { t } = useTranslation()
+  const { id } = useParams()
+  const { cart } = useCart()
+  const [product, setProduct] = useState(null)
 
   useEffect(() => {
-    getProductDetails(id)
-      .then(setProduct)
-      .catch(console.error)
+    getProductDetails(id).then(setProduct).catch(console.error)
   }, [id])
 
   function getFields() {
@@ -37,12 +34,12 @@ function ProductDetails() {
       { label: t('productDetails.primaryCamera'), value: product.primaryCamera },
       { label: t('productDetails.secondaryCamera'), value: product.secondaryCmera },
       { label: t('productDetails.dimensions'), value: product.dimentions },
-      { label: t('productDetails.weight'), value: product.weight }
+      { label: t('productDetails.weight'), value: product.weight },
     ]
   }
 
   return (
-    <div className="product-details-container" data-testid='product-details-container' >
+    <div className="product-details-container" data-testid="product-details-container">
       <Header
         breadcrumbs={[{ label: t('productDetails.breadcrumb.label'), to: '/' }]}
         cartItems={cart.length}
@@ -53,19 +50,22 @@ function ProductDetails() {
         {t('productDetails.backToProducts')}
       </Link>
 
-      <div className="product-details-content" data-testid='product-details-content'>
+      <div className="product-details-content" data-testid="product-details-content">
         {product ? (
           <>
-            <div className="product-details-image" data-testid='product-details-image'>
+            <div className="product-details-image" data-testid="product-details-image">
               <img src={product.imgUrl} alt={`${product.brand}_${product.model}`} />
             </div>
 
-            <div className="product-details-info" data-testid='product-details-info'>
-              <div className="product-details-description" data-testid='product-details-description'>
+            <div className="product-details-info" data-testid="product-details-info">
+              <div
+                className="product-details-description"
+                data-testid="product-details-description"
+              >
                 <ProductDetailsCard fields={getFields(product)} />
               </div>
 
-              <div className="product-details-actions" data-testid='product-details-actions'>
+              <div className="product-details-actions" data-testid="product-details-actions">
                 <ProductActions
                   productId={product.id}
                   colors={product.options.colors}
@@ -76,13 +76,12 @@ function ProductDetails() {
           </>
         ) : (
           <NotFound
-            className='product-detail-notFound'
+            className="product-detail-notFound"
             message={t('productList.noProductsFound')}
           />
-
         )}
       </div>
-    </div >
+    </div>
   )
 }
 

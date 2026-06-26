@@ -33,11 +33,11 @@ export async function fetchAddProductToCart(id, colorCode, storageCode) {
       colorCode,
       storageCode,
     }),
-  });
+  })
 
   if (!res.ok) {
-    throw new Error('Error adding product to cart');
+    throw new Error('Error adding product to cart')
   }
 
-  return res.json();
+  return res.json()
 }

@@ -5,7 +5,9 @@
   border-radius: $radius-md;
   overflow: hidden;
   box-shadow: $shadow-sm;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   cursor: pointer;
   text-decoration: none;
   color: $color-text;

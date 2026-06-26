@@ -1,16 +1,16 @@
 {
-  "header":{
-    "language":{
+  "header": {
+    "language": {
       "english": "Inglés",
       "spanish": "Español"
     }
   },
   "productList": {
-      "searchBarPlaceholder": "Buscar por marca o modelo",
-      "noProductsFound": "No se han encontrado productos",
-      "breadcrumb":{
-          "label": "Lista de productos"
-      }
+    "searchBarPlaceholder": "Buscar por marca o modelo",
+    "noProductsFound": "No se han encontrado productos",
+    "breadcrumb": {
+      "label": "Lista de productos"
+    }
   },
   "productDetails": {
     "brand": "Marca",
@@ -27,8 +27,8 @@
     "weight": "Peso",
     "backToProducts": "Volver a la lista de productos",
     "notExist": "El producto no existe",
-    "breadcrumb":{
-        "label": "Detalles del producto"
+    "breadcrumb": {
+      "label": "Detalles del producto"
     }
   },
   "productActions": {

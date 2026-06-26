@@ -2,11 +2,11 @@ const STORAGE_DURATION = 1000 * 60 * 60
 
 export function getLocalStorage(key) {
   const item = localStorage.getItem(key)
-  
-  if (!item){ 
+
+  if (!item) {
     return null
   }
-  
+
   const { data, expiry } = JSON.parse(item)
 
   if (Date.now() > expiry) {
@@ -22,7 +22,7 @@ export function setLocalStorage(key, data) {
     key,
     JSON.stringify({
       data,
-      expiry: Date.now() + STORAGE_DURATION
+      expiry: Date.now() + STORAGE_DURATION,
     })
   )
 }

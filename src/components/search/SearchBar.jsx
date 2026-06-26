@@ -1,19 +1,19 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import './SearchBar.scss'
 
-function SearchBar({placeholder, onSearch, className = ""}) {
+function SearchBar({ placeholder, onSearch, className = '' }) {
   return (
-    <label className={`${className} search-bar-container`} data-testid='search-bar-container'>
-      <MagnifyingGlassIcon className="search-bar-icon" data-testid='search-bar-icon' />
+    <label className={`${className} search-bar-container`} data-testid="search-bar-container">
+      <MagnifyingGlassIcon className="search-bar-icon" data-testid="search-bar-icon" />
       <input
         id="search-bar"
         className="search-bar"
         type="text"
         placeholder={placeholder}
         onChange={(e) => onSearch(e.target.value)}
-        data-testid='search-bar'
+        data-testid="search-bar"
       />
-    </label >
+    </label>
   )
 }
 

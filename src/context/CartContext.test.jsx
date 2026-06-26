@@ -3,12 +3,9 @@ import { describe, it, expect } from 'vitest'
 import { CartProvider } from './CartContext'
 import { useCart } from '../hooks/useCart'
 
-const wrapper = ({ children }) => (
-  <CartProvider>{children}</CartProvider>
-)
+const wrapper = ({ children }) => <CartProvider>{children}</CartProvider>
 
 describe('CartContext', () => {
-
   it('starts with empty cart', () => {
     const { result } = renderHook(() => useCart(), { wrapper })
 
@@ -25,7 +22,7 @@ describe('CartContext', () => {
     expect(result.current.cart).toHaveLength(1)
     expect(result.current.cart[0]).toEqual({
       id: 1,
-      name: 'iPhone'
+      name: 'iPhone',
     })
   })
 })

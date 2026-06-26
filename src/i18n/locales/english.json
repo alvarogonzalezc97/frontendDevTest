@@ -1,16 +1,16 @@
 {
-  "header":{
-    "language":{
+  "header": {
+    "language": {
       "english": "English",
       "spanish": "Spanish"
     }
   },
   "productList": {
-      "searchBarPlaceholder": "Search by brand or model",
-      "noProductsFound": "No products found",
-      "breadcrumb":{
-          "label": "Product list"
-      }
+    "searchBarPlaceholder": "Search by brand or model",
+    "noProductsFound": "No products found",
+    "breadcrumb": {
+      "label": "Product list"
+    }
   },
   "productDetails": {
     "brand": "Brand",
@@ -27,8 +27,8 @@
     "weight": "Weight",
     "backToProducts": "Back to the product list",
     "notExist": "Product not exist",
-    "breadcrumb":{
-        "label": "Product details"
+    "breadcrumb": {
+      "label": "Product details"
     }
   },
   "productActions": {

@@ -4,13 +4,13 @@ import Selector from './Selector'
 
 const mockOptions = [
   { code: 1, name: 'Black/Silver' },
-  { code: 2, name: 'White' }
+  { code: 2, name: 'White' },
 ]
 
 function renderSelector(props = {}) {
   return render(
     <Selector
-      className='selector-color'
+      className="selector-color"
       label="Color"
       options={mockOptions}
       value={1}
@@ -20,7 +20,7 @@ function renderSelector(props = {}) {
 }
 
 describe('Selector', () => {
- it('renders selector', () => {
+  it('renders selector', () => {
     renderSelector()
 
     expect(screen.getByTestId('selector-color')).toBeInTheDocument()

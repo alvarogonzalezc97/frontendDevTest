@@ -11,18 +11,15 @@ vi.mock('react-i18next', () => ({
     t: (k) => k,
     i18n: {
       language: 'en',
-      changeLanguage: changeLanguageMock
-    }
-  })
+      changeLanguage: changeLanguageMock,
+    },
+  }),
 }))
 
 function renderHeader(props = {}) {
-
   return render(
     <MemoryRouter>
-      <Header
-        breadcrumbs={props.breadcrumbs}
-        cartItems={props.cartItems} />
+      <Header breadcrumbs={props.breadcrumbs} cartItems={props.cartItems} />
     </MemoryRouter>
   )
 }
@@ -49,10 +46,7 @@ describe('Header', () => {
 
   it('renders breadcrumb labels', () => {
     renderHeader({
-      breadcrumbs: [
-        { label: 'Home', to: '/' },
-        { label: 'Phones' }
-      ]
+      breadcrumbs: [{ label: 'Home', to: '/' }, { label: 'Phones' }],
     })
 
     expect(screen.getByText('Home')).toBeInTheDocument()
@@ -61,9 +55,7 @@ describe('Header', () => {
 
   it('renders breadcrumb link when "to" is provided', () => {
     renderHeader({
-      breadcrumbs: [
-        { label: 'Home', to: '/' }
-      ]
+      breadcrumbs: [{ label: 'Home', to: '/' }],
     })
 
     const link = screen.getByRole('link', { name: 'Home' })
@@ -73,7 +65,7 @@ describe('Header', () => {
 
   it('renders cart container and count', () => {
     renderHeader({
-      cartItems: 2
+      cartItems: 2,
     })
 
     expect(screen.getByTestId('cart-container')).toBeInTheDocument()
@@ -84,7 +76,7 @@ describe('Header', () => {
 
   it('renders correct cart item count', () => {
     renderHeader({
-      cartItems: 5
+      cartItems: 5,
     })
 
     const cartCount = screen.getByTestId('cart-count')

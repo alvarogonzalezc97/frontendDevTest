@@ -1,41 +1,41 @@
 .selector-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
-    .selector-label {
-        font-weight: 700;
-        font-size: $font-size-sm-base;
+  .selector-label {
+    font-weight: 700;
+    font-size: $font-size-sm-base;
+  }
+
+  .selector-select {
+    padding: 0.6rem 1rem;
+    border: 1px solid #d0d0d0;
+    border-radius: 12px;
+    font-size: $font-size-sm-base;
+    outline: none;
+
+    font-size: 0.95rem;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #999;
     }
 
-    .selector-select {
-        padding: 0.6rem 1rem;
-        border: 1px solid #d0d0d0;
-        border-radius: 12px;
-        font-size: $font-size-sm-base;
-        outline: none;
-
-        font-size: 0.95rem;
-        cursor: pointer;
-
-        transition: all 0.2s ease;
-
-        &:hover {
-            border-color: #999;
-        }
-
-        &:focus-within {
-            border-color: $color-accent;
-        }
-
-        option {
-            background: #fff;
-            color: #333;
-        }
-
-        option:checked {
-            background: #e8f0ff;
-            font-weight: 700;
-        }
+    &:focus-within {
+      border-color: $color-accent;
     }
+
+    option {
+      background: #fff;
+      color: #333;
+    }
+
+    option:checked {
+      background: #e8f0ff;
+      font-weight: 700;
+    }
+  }
 }

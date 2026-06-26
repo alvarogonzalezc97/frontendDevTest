@@ -2,30 +2,32 @@ import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
 import { useState, useEffect, useMemo } from 'react'
 import { getProducts } from '../../api/product.api'
-import ProductCard from '../../components/product/listCard/ProductCard';
-import SearchBar from '../../components/search/SearchBar';
-import NotFound from '../../components/notFound/NotFound';
+import ProductCard from '../../components/product/listCard/ProductCard'
+import SearchBar from '../../components/search/SearchBar'
+import NotFound from '../../components/notFound/NotFound'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 import './ProductList.scss'
 
 function ProductList() {
-  const { t } = useTranslation();
-  const { cart } = useCart();
+  const { t } = useTranslation()
+  const { cart } = useCart()
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    getProducts()
-      .then(setProducts)
-      .catch(console.error)
+    getProducts().then(setProducts).catch(console.error)
   }, [])
 
-  const filteredProducts = useMemo(() =>
-    products.filter(product =>
-      product.brand.toLowerCase().includes(search.toLowerCase()) ||
-      product.model.toLowerCase().includes(search.toLowerCase())
-    ), [products, search])
+  const filteredProducts = useMemo(
+    () =>
+      products.filter(
+        (product) =>
+          product.brand.toLowerCase().includes(search.toLowerCase()) ||
+          product.model.toLowerCase().includes(search.toLowerCase())
+      ),
+    [products, search]
+  )
 
   return (
     <div className="product-list-container">
@@ -36,25 +38,20 @@ function ProductList() {
 
       <div className="product-list-content">
         <SearchBar
-          className='product-list-searchBar'
+          className="product-list-searchBar"
           placeholder={t('productList.searchBarPlaceholder')}
           onSearch={setSearch}
         />
 
         <div className="product-grid">
-          {filteredProducts.length > 0
-            ? filteredProducts.map(product => (
-              <ProductCard
-                key={product.id}
-                product={product}
-              />
-            ))
-            : (
-              <NotFound
-                className='product-list-notFound'
-                message={t('productList.noProductsFound')}
-              />
-            )}
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
+          ) : (
+            <NotFound
+              className="product-list-notFound"
+              message={t('productList.noProductsFound')}
+            />
+          )}
         </div>
       </div>
     </div>

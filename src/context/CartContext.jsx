@@ -10,7 +10,7 @@ function getInitialCart() {
 }
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState(getInitialCart());
+  const [cart, setCart] = useState(getInitialCart())
 
   const addItem = (item) => {
     const newCart = [...cart, item]
@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
     <CartContext.Provider
       value={{
         cart,
-        addItem
+        addItem,
       }}
     >
       {children}
