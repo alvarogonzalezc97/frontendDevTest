@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { describe, it, expect } from 'vitest'
+import { ROUTES } from '../../router/routes'
 import Header from './Header'
 
 const changeLanguageMock = vi.fn()
@@ -67,7 +68,7 @@ describe('Header', () => {
 
     const link = screen.getByRole('link', { name: 'Home' })
 
-    expect(link).toHaveAttribute('href', '/')
+    expect(link).toHaveAttribute('href', ROUTES.HOME)
   })
 
   it('renders cart container and count', () => {

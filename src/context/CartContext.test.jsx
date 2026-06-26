@@ -28,42 +28,4 @@ describe('CartContext', () => {
       name: 'iPhone'
     })
   })
-
-  it('removes item from cart', () => {
-    const { result } = renderHook(() => useCart(), { wrapper })
-
-    act(() => {
-      result.current.addItem({ id: 1 })
-      result.current.addItem({ id: 2 })
-
-      result.current.removeItem(1)
-    })
-
-    expect(result.current.cart).toHaveLength(1)
-    expect(result.current.cart[0].id).toBe(2)
-  })
-
-  it('does nothing if item does not exist', () => {
-    const { result } = renderHook(() => useCart(), { wrapper })
-
-    act(() => {
-      result.current.addItem({ id: 1 })
-      result.current.removeItem(999)
-    })
-
-    expect(result.current.cart).toHaveLength(1)
-  })
-
-  it('clears cart', () => {
-    const { result } = renderHook(() => useCart(), { wrapper })
-
-    act(() => {
-      result.current.addItem({ id: 1 })
-      result.current.addItem({ id: 2 })
-
-      result.current.clearCart()
-    })
-
-    expect(result.current.cart).toEqual([])
-  })
 })

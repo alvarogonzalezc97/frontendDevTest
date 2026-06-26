@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router'
 import { describe, it, expect } from 'vitest'
+import { ROUTES } from '../../../router/routes'
 import ProductCard from './ProductCard'
 
 const mockProduct = {
@@ -63,6 +64,6 @@ describe('ProductCard', () => {
     it('renders link to product detail', () => {
         renderProductCard()
 
-        expect(screen.getByRole('link')).toHaveAttribute('href', '/product/1')
+        expect(screen.getByRole('link')).toHaveAttribute('href', ROUTES.PRODUCT_DETAIL(1))
     })
 })

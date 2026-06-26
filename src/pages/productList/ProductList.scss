@@ -28,31 +28,8 @@
     }
   }
 
-  .product-no-results-container {
-    width: 20rem;
+  .product-list-notFound {
+    width: 100%;
     grid-column: 1 / -1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background-color: $color-surface;
-    border-radius: $radius-lg;
-    box-shadow: $shadow-md;
-    color: $color-text-muted;
-    padding: 2rem 1rem;
-    margin: auto;
-
-    svg {
-      width: 4rem;
-      height: 4rem;
-      color: $color-accent;
-    }
-
-    .product-no-results {
-      margin: 0;
-      font-size: $font-size-lg;
-      font-weight: 500;
-    }
   }
 }

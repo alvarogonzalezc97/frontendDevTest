@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
-import phoneStoreLogo from '../../assets/phone_store_logo.png'
+import phoneStoreLogo from '../../assets/phone_store_logo.webp'
 import { useTranslation } from 'react-i18next'
+import { ROUTES } from '../../router/routes'
 import './Header.scss'
 
 function Header({ className = "", breadcrumbs = [], cartItems = 0 }) {
@@ -14,7 +15,7 @@ function Header({ className = "", breadcrumbs = [], cartItems = 0 }) {
   return (
     <header className={`${className} header-container`}>
       <div className='logo-container' data-testid='nav-container'>
-        <Link className='logo' to="/" data-testid='logo'>
+        <Link className='logo' to={ROUTES.HOME} data-testid='logo'>
           <img src={phoneStoreLogo} alt="phone_store_logo" />
         </Link>
       </div>

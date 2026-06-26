@@ -1,6 +1,6 @@
 import './ProductDetailsCard.scss'
 
-function ProductDetailsCard({ fields }) {
+function ProductDetailsCard({fields, className = ""}) {
 
     function cleanedFields(fields) {
         return fields.map(cleanField).filter(Boolean)
@@ -24,7 +24,7 @@ function ProductDetailsCard({ fields }) {
     }
 
     return (
-        <ul className='product-details-card' data-testid='product-details-card'>
+        <ul  className={`${className} product-details-card`} data-testid='product-details-card'>
             {cleanedFields(fields).map((field) => (
                 <li key={field.label}>
                     <span className='product-details-card-label'>{field.label}:</span>

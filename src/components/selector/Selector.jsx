@@ -1,6 +1,6 @@
 import './Selector.scss';
 
-function Selector({ label, options, value, onChange, className="" }) {
+function Selector({label, options, value, onChange, className=""}) {
     return (
         <div className={`${className} selector-container`} data-testid={`${className}`}>
             <label className="selector-label" data-testid='selector-label'>

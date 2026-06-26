@@ -1,5 +1,6 @@
-import { getLocalStorage, setLocalStorage } from '../storage/localStorage'
-import { API_BASE_URL } from '../config/api.config'
+import { getLocalStorage, setLocalStorage } from '../../storage/localStorage'
+
+const API_BASE_URL = 'https://itx-frontend-test.onrender.com'
 
 export async function fetchProducts() {
   const res = await fetch(`${API_BASE_URL}/api/product`)
@@ -21,7 +22,7 @@ export async function fetchProductDetails(id) {
   return res.json()
 }
 
-export async function fetchAddProductToCart({ id, colorCode, storageCode }) {
+export async function fetchAddProductToCart(id, colorCode, storageCode) {
   const res = await fetch(`${API_BASE_URL}/api/cart`, {
     method: 'POST',
     headers: {

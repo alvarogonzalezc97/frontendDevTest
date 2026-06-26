@@ -2,11 +2,13 @@ import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
 import { useParams, Link } from 'react-router'
 import { useState, useEffect } from 'react'
-import { getProductDetails } from '../../services/product.service'
+import { getProductDetails } from '../../api/product.api'
 import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard';
 import ProductActions from '../../components/product/actions/ProductActions';
+import NotFound from '../../components/notFound/NotFound';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import { useTranslation } from 'react-i18next';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import './ProductDetails.scss'
 
 function ProductDetails() {
@@ -22,21 +24,21 @@ function ProductDetails() {
       .catch(console.error)
   }, [id])
 
-  function getFields(){
+  function getFields() {
     return [
-        { label: t('productDetails.brand'), value: product.brand },
-        { label: t('productDetails.model'), value: product.model },
-        { label: t('productDetails.price'), value: `${product.price} €` },
-        { label: t('productDetails.cpu'), value: product.cpu },
-        { label: t('productDetails.ram'), value: product.ram  },
-        { label: t('productDetails.os'), value: product.os },
-        { label: t('productDetails.screen'), value: product.displayResolution },
-        { label: t('productDetails.battery'), value: product.battery },
-        { label: t('productDetails.primaryCamera'), value: product.primaryCamera },
-        { label: t('productDetails.secondaryCamera'), value: product.secondaryCmera },
-        { label: t('productDetails.dimensions'), value: product.dimentions },
-        { label: t('productDetails.weight'), value: product.weight }
-      ]
+      { label: t('productDetails.brand'), value: product.brand },
+      { label: t('productDetails.model'), value: product.model },
+      { label: t('productDetails.price'), value: `${product.price} €` },
+      { label: t('productDetails.cpu'), value: product.cpu },
+      { label: t('productDetails.ram'), value: product.ram },
+      { label: t('productDetails.os'), value: product.os },
+      { label: t('productDetails.screen'), value: product.displayResolution },
+      { label: t('productDetails.battery'), value: product.battery },
+      { label: t('productDetails.primaryCamera'), value: product.primaryCamera },
+      { label: t('productDetails.secondaryCamera'), value: product.secondaryCmera },
+      { label: t('productDetails.dimensions'), value: product.dimentions },
+      { label: t('productDetails.weight'), value: product.weight }
+    ]
   }
 
   return (
@@ -68,13 +70,17 @@ function ProductDetails() {
                   productId={product.id}
                   colors={product.options.colors}
                   storages={product.options.storages}
-              />
+                />
               </div>
             </div>
           </>
-          ):(
-                <p>{t('productDetails.notExist')}</p>
-            )}
+        ) : (
+          <NotFound
+            className='product-detail-notFound'
+            message={t('productList.noProductsFound')}
+          />
+
+        )}
       </div>
     </div >
   )

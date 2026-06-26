@@ -1,9 +1,9 @@
-import { getLocalStorage, setLocalStorage } from '../storage/localStorage'
+import { getLocalStorage, setLocalStorage } from '../../storage/localStorage'
 
 export async function fetchLocalStorage(key, fetchApi) {
   const storageItems = getLocalStorage(key)
-  
-  if (storageItems){
+
+  if (storageItems) {
     return storageItems
   }
 

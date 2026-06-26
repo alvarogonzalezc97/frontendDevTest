@@ -1,4 +1,4 @@
-import { STORAGE_DURATION } from '../config/api.config'
+const STORAGE_DURATION = 1000 * 60 * 60
 
 export function getLocalStorage(key) {
   const item = localStorage.getItem(key)

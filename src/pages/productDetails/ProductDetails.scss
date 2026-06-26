@@ -40,12 +40,18 @@
             flex-direction: column;
             gap: 1.5rem;
 
-            .product-details-description, .product-details-actions {
+            .product-details-description,
+            .product-details-actions {
                 background: white;
                 padding: 1rem;
                 border-radius: 1rem;
                 border: 1px solid #eee;
             }
+        }
+
+        .product-detail-notFound {
+            grid-column: 1 / -1;
+            width: 100%;
         }
     }
 

@@ -1,9 +1,10 @@
 import { Link } from 'react-router'
+import { ROUTES } from '../../../router/routes'
 import './ProductCard.scss'
 
-function ProductCard({ className = "", product }) {
+function ProductCard({product, className = ""}) {
   return (
-    <Link to={`/product/${product.id}`} className={`${className} product-card`} data-testid='product-card' >
+    <Link to={ROUTES.PRODUCT_DETAIL(product.id)} className={`${className} product-card`} data-testid='product-card' >
       <div className="product-card-image" data-testid='product-image'>
         <img src={product.imgUrl} alt={`${product.brand}_${product.model}`} />
       </div>

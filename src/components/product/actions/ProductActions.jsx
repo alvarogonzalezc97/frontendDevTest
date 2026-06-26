@@ -1,11 +1,11 @@
-import { addProductToCart } from '../../../services/product.service'
+import { addProductToCart } from '../../../api/product.api'
 import Selector from '../../../components/selector/Selector'
 import { useCart } from '../../../hooks/useCart'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';
 import './ProductActions.scss';
 
-function ProductActions({ productId, colors, storages }) {
+function ProductActions({ productId, colors, storages, className = "" }) {
     const { t } = useTranslation();
     const [selectedColor, setSelectedColor] = useState(colors.length >= 1 ? colors[0].code : undefined);
     const [selectedStorage, setSelectedStorage] = useState(storages.length >= 1 ? storages[0].code : undefined);
@@ -29,7 +29,7 @@ function ProductActions({ productId, colors, storages }) {
     };
 
     return (
-        <div className="product-actions-container" data-testid='actions-container'>
+        <div className={`${className} product-actions-container`} data-testid='actions-container'>
             <Selector
                 className="selector-color"
                 label={t('productActions.color')}
