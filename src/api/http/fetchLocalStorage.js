@@ -1,5 +1,7 @@
 import { getLocalStorage, setLocalStorage } from '../../storage/localStorage'
 
+const FETCH_STORAGE_DURATION = 1000 * 60 * 60
+
 export async function fetchLocalStorage(key, fetchApi) {
   const storageItems = getLocalStorage(key)
 
@@ -9,7 +11,7 @@ export async function fetchLocalStorage(key, fetchApi) {
 
   const data = await fetchApi()
 
-  setLocalStorage(key, data)
+  setLocalStorage(key, data, FETCH_STORAGE_DURATION)
 
   return data
 }

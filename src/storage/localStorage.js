@@ -1,4 +1,4 @@
-const STORAGE_DURATION = 1000 * 60 * 60
+const DEAFULT_STORAGE_DURATION = 1000 * 60 * 60 * 24
 
 export function getLocalStorage(key) {
   const item = localStorage.getItem(key)
@@ -9,7 +9,7 @@ export function getLocalStorage(key) {
 
   const { data, expiry } = JSON.parse(item)
 
-  if (Date.now() > expiry) {
+  if (expiry && Date.now() > expiry) {
     localStorage.removeItem(key)
     return null
   }
@@ -17,12 +17,12 @@ export function getLocalStorage(key) {
   return data
 }
 
-export function setLocalStorage(key, data) {
+export function setLocalStorage(key, data, duration = DEAFULT_STORAGE_DURATION) {
   localStorage.setItem(
     key,
     JSON.stringify({
       data,
-      expiry: Date.now() + STORAGE_DURATION,
+      expiry: duration ? Date.now() + duration : null,
     })
   )
 }

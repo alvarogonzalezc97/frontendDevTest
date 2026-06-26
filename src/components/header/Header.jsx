@@ -3,6 +3,7 @@ import { ShoppingCartIcon } from '@heroicons/react/24/outline'
 import phoneStoreLogo from '../../assets/phone_store_logo.webp'
 import { useTranslation } from 'react-i18next'
 import { ROUTES } from '../../router/routes'
+import { setLocalStorage } from '../../storage/localStorage'
 import './Header.scss'
 
 function Header({ className = '', breadcrumbs = [], cartItems = 0 }) {
@@ -10,6 +11,7 @@ function Header({ className = '', breadcrumbs = [], cartItems = 0 }) {
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang)
+    setLocalStorage('i18n', lang)
   }
 
   return (

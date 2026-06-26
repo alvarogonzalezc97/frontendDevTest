@@ -5,6 +5,11 @@
       "spanish": "Spanish"
     }
   },
+  "notFound": {
+    "title": "Page not found",
+    "message": "The page you are looking for does not exist or has been moved.",
+    "button": "Back to product list"
+  },
   "productList": {
     "searchBarPlaceholder": "Search by brand or model",
     "noProductsFound": "No products found",
