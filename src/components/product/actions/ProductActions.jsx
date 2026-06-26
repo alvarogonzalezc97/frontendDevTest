@@ -13,16 +13,19 @@ function ProductActions({ productId, colors, storages, className = '' }) {
   const [selectedStorage, setSelectedStorage] = useState(
     storages.length >= 1 ? storages[0].code : undefined
   )
-  const { addItem } = useCart()
+  const cart = useCart()
+  const addItem = cart?.addItem ?? (() => {})
   const isDisabled = !selectedColor || !selectedStorage
 
   const handleAddToCart = async () => {
+    console.log("SELECTEEEEEED COLOR --> ", selectedColor)
     const responseCount = await addProductToCart({
       id: productId,
       colorCode: selectedColor,
       storageCode: selectedStorage,
     })
 
+    console.log("SELECTEEEEEED COLOR --> ", selectedStorage)
     addItem({
       id: productId,
       colorCode: selectedColor,

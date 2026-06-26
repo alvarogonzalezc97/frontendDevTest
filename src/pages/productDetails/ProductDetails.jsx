@@ -17,7 +17,9 @@ function ProductDetails() {
   const [product, setProduct] = useState(null)
 
   useEffect(() => {
-    getProductDetails(id).then(setProduct).catch(console.error)
+    getProductDetails(id)
+      .then(setProduct)
+      .catch(console.error)
   }, [id])
 
   function getFields() {

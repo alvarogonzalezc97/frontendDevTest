@@ -15,7 +15,7 @@ function Selector({ label, options, value, onChange, className = '' }) {
       >
         {options.map((option) => (
           <option key={option.code} value={option.code}>
-            {option.name || option.capacity}
+            {option.name}
           </option>
         ))}
       </select>
