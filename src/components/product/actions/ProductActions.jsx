@@ -1,8 +1,8 @@
+import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { addProductToCart } from '../../../api/product.api'
 import Selector from '../../../components/selector/Selector'
 import { useCart } from '../../../hooks/useCart'
-import { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
 import './ProductActions.scss'
 
 function ProductActions({ productId, colors, storages, className = '' }) {
@@ -13,7 +13,6 @@ function ProductActions({ productId, colors, storages, className = '' }) {
   const [selectedStorage, setSelectedStorage] = useState(
     storages.length >= 1 ? storages[0].code : undefined
   )
-
   const { addItem } = useCart()
   const isDisabled = !selectedColor || !selectedStorage
 

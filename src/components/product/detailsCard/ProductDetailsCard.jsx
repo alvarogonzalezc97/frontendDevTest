@@ -4,6 +4,7 @@ function ProductDetailsCard({ fields, className = '' }) {
   function cleanedFields(fields) {
     return fields.map(cleanField).filter(Boolean)
   }
+  
   function cleanField(field) {
     if (Array.isArray(field.value)) {
       const cleaned = cleanArray(field.value)

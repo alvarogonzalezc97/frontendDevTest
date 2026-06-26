@@ -1,12 +1,12 @@
+import { useState, useEffect, useMemo } from 'react'
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { useTranslation } from 'react-i18next'
 import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
-import { useState, useEffect, useMemo } from 'react'
 import { getProducts } from '../../api/product.api'
 import ProductCard from '../../components/product/listCard/ProductCard'
 import SearchBar from '../../components/search/SearchBar'
 import NotFound from '../../components/notFound/NotFound'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import { useTranslation } from 'react-i18next'
 import './ProductList.scss'
 
 function ProductList() {

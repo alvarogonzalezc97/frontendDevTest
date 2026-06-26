@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router'
 import { ShoppingCartIcon } from '@heroicons/react/24/outline'
-import phoneStoreLogo from '../../assets/phone_store_logo.webp'
 import { useTranslation } from 'react-i18next'
+import phoneStoreLogo from '../../assets/phone_store_logo.webp'
 import { ROUTES } from '../../router/routes'
 import { setLocalStorage } from '../../storage/localStorage'
 import './Header.scss'

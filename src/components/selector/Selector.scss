@@ -9,19 +9,15 @@
   }
 
   .selector-select {
-    padding: 0.6rem 1rem;
+    padding: 0.4rem .5rem;
     border: 1px solid #d0d0d0;
-    border-radius: 12px;
-    font-size: $font-size-sm-base;
+    border-radius: $radius-md;
     outline: none;
-
-    font-size: 0.95rem;
+    font-size: $font-size-sm-base;
     cursor: pointer;
 
-    transition: all 0.2s ease;
-
     &:hover {
-      border-color: #999;
+      border-color: $color-border;
     }
 
     &:focus-within {
@@ -29,12 +25,11 @@
     }
 
     option {
-      background: #fff;
-      color: #333;
+      background: $color-surface;
+      color: $color-text;
     }
 
     option:checked {
-      background: #e8f0ff;
       font-weight: 700;
     }
   }
