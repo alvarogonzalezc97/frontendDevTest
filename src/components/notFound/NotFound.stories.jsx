@@ -19,7 +19,7 @@ export default {
     },
 }
 
-export const notFound = {
+export const NotFoundDefault = {
     args: {
         message:
             'The resource you are looking for does not exist or may have been removed',

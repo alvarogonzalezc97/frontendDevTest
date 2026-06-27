@@ -33,7 +33,7 @@ export default {
   },
 }
 
-export const header = {
+export const HeaderDefault = {
   render: (args) => {
     const { t } = useTranslation()
     return (

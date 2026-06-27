@@ -22,12 +22,7 @@ function ProductDetails() {
   useEffect(() => {
     getProductDetails(id)
       .then(setProduct)
-      .catch((err) => {
-        if (err.status === 404) {
-          setError('notFound')
-        }
-        console.error
-      })
+      .catch(console.error)
       .finally(() => setIsLoading(false))
   }, [id])
 

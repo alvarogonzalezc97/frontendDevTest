@@ -16,7 +16,7 @@ export default {
     },
 }
 
-export const loaderMessage = {
+export const LoaderMessage = {
     args: {
         message: 'Loading products...',
     },
@@ -24,7 +24,7 @@ export const loaderMessage = {
         <Loader {...args} />,
 }
 
-export const loaderWithoutMessage = {
+export const LoaderWithoutMessage = {
     args: {},
     render: (args) => 
         <Loader {...args} 

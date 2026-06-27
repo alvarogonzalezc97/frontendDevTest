@@ -37,7 +37,7 @@ export default {
     },
 };
 
-export const select = {
+export const Select = {
     render: (args) => {
         const [value, setValue] = useState(args.value);
 

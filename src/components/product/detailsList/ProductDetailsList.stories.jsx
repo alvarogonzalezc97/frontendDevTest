@@ -1,4 +1,3 @@
-import { MemoryRouter } from 'react-router'
 import ProductDetailsList from './ProductDetailsList'
 
 export default {

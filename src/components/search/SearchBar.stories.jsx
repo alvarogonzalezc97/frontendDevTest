@@ -25,7 +25,7 @@ export default {
   },
 };
 
-export const searchBar = {
+export const SearchBarDefault = {
   args: {
     placeholder: 'Custom placeholder',
   },
