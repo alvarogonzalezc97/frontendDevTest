@@ -24,7 +24,12 @@ const mockStorages = [
 
 function renderProductActions(props = {}) {
   return render(
-    <ProductActions productId="1" colors={mockColors} storages={mockStorages} {...props} />
+    <ProductActions 
+      productId="1" 
+      colors={mockColors} 
+      storages={mockStorages} 
+      {...props} 
+    />
   )
 }
 

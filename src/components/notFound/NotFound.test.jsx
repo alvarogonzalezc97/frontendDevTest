@@ -3,11 +3,12 @@ import { describe, it, expect } from 'vitest'
 import NotFound from './NotFound'
 
 function renderNotFound(props = {}) {
-  return render(<NotFound
-    className='product-list-notFound'
-    message="No products found"
-    {...props}
-  />
+  return render(
+    <NotFound
+      className='product-list-notFound'
+      message="No products found"
+      {...props}
+    />
   )
 }
 

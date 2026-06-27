@@ -1,9 +1,9 @@
 import { MemoryRouter } from 'react-router'
-import ProductDetailsCard from './ProductDetailsCard'
+import ProductDetailsList from './ProductDetailsList'
 
 export default {
-  title: 'Components/ProductDetailsCard',
-  component: ProductDetailsCard,
+  title: 'Components/ProductDetailsList',
+  component: ProductDetailsList,
   tags: ['autodocs'],
   args: {
     fields: [
@@ -20,25 +20,20 @@ export default {
     },
     fields: {
       control: 'object',
-      description: 'Array of fields displayed in the details card',
+      description: 'Array of fields displayed in the details list',
     },
   },
 }
 
-export const DetailCard = {
+export const DetailList = {
   render: (args) => (
     <div style={{ maxWidth: 500 }}>
-      <ProductDetailsCard {...args} />
+      <ProductDetailsList {...args} />
     </div>
   ),
 }
 
-export const DetailCardWithEmptyAndArrayValues = {
-  render: (args) => (
-    <div style={{ maxWidth: 500 }}>
-      <ProductDetailsCard {...args} />
-    </div>
-  ),
+export const DetailListWithEmptyAndArrayValues = {
   args: {
     fields: [
       { label: 'Brand', value: 'Adidas' },
@@ -48,4 +43,10 @@ export const DetailCardWithEmptyAndArrayValues = {
       { label: 'Notes', value: null },
     ],
   },
+
+  render: (args) => (
+    <div style={{ maxWidth: 500 }}>
+      <ProductDetailsList {...args} />
+    </div>
+  )
 }

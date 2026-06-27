@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next'
 import Header from '../../components/header/Header'
 import { useCart } from '../../hooks/useCart'
 import { getProductDetails } from '../../api/product.api'
-import ProductDetailsCard from '../../components/product/detailsCard/ProductDetailsCard'
+import ProductDetailsList from '../../components/product/detailsList/ProductDetailsList'
 import ProductActions from '../../components/product/actions/ProductActions'
 import NotFound from '../../components/notFound/NotFound'
+import Loader from '../../components/loader/Loader'
 import './ProductDetails.scss'
 
 function ProductDetails() {
@@ -15,11 +16,19 @@ function ProductDetails() {
   const { id } = useParams()
   const { cart } = useCart()
   const [product, setProduct] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
+
 
   useEffect(() => {
     getProductDetails(id)
       .then(setProduct)
-      .catch(console.error)
+      .catch((err) => {
+        if (err.status === 404) {
+          setError('notFound')
+        }
+        console.error
+      })
+      .finally(() => setIsLoading(false))
   }, [id])
 
   function getFields() {
@@ -42,7 +51,10 @@ function ProductDetails() {
   return (
     <div className="product-details-container" data-testid="product-details-container">
       <Header
-        breadcrumbs={[{ label: t('productDetails.breadcrumb.label'), to: '/' }]}
+        breadcrumbs={[
+          { label: t('productDetails.breadcrumb.productList'), to: '/' },
+          { label: t('productDetails.breadcrumb.productDetail') }
+        ]}
         cartItems={cart.length}
       />
 
@@ -51,37 +63,44 @@ function ProductDetails() {
         {t('productDetails.backToProducts')}
       </Link>
 
-      <div className="product-details-content" data-testid="product-details-content">
-        {product ? (
-          <>
-            <div className="product-details-image" data-testid="product-details-image">
-              <img src={product.imgUrl} alt={`${product.brand}_${product.model}`} />
-            </div>
-
-            <div className="product-details-info" data-testid="product-details-info">
-              <div
-                className="product-details-description"
-                data-testid="product-details-description"
-              >
-                <ProductDetailsCard fields={getFields(product)} />
+      {isLoading ? (
+        <Loader
+          className='product-deatils-loader'
+          message={t('productDetails.loader.message')} 
+        />
+      ) : (
+        <div className="product-details-content" data-testid="product-details-content">
+          {product ? (
+            <>
+              <div className="product-details-image" data-testid="product-details-image">
+                <img src={product.imgUrl} alt={`${product.brand}_${product.model}`} />
               </div>
 
-              <div className="product-details-actions" data-testid="product-details-actions">
-                <ProductActions
-                  productId={product.id}
-                  colors={product.options.colors}
-                  storages={product.options.storages}
-                />
+              <div className="product-details-info" data-testid="product-details-info">
+                <div
+                  className="product-details-description"
+                  data-testid="product-details-description"
+                >
+                  <ProductDetailsList fields={getFields(product)} />
+                </div>
+
+                <div className="product-details-actions" data-testid="product-details-actions">
+                  <ProductActions
+                    productId={product.id}
+                    colors={product.options.colors}
+                    storages={product.options.storages}
+                  />
+                </div>
               </div>
-            </div>
-          </>
-        ) : (
-          <NotFound
-            className="product-detail-notFound"
-            message={t('productList.noProductsFound')}
-          />
-        )}
-      </div>
+            </>
+          ) : (
+            <NotFound
+              className="product-detail-notFound"
+              message={t('productList.noProductsFound')}
+            />
+          )}
+        </div>
+      )}
     </div>
   )
 }

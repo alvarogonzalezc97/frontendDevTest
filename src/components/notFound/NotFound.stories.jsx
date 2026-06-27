@@ -24,5 +24,7 @@ export const notFound = {
         message:
             'The resource you are looking for does not exist or may have been removed',
     },
-    render: (args) => <NotFound {...args} />,
+    render: (args) => 
+        <NotFound {...args} 
+    />,
 }

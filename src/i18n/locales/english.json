@@ -13,8 +13,12 @@
   "productList": {
     "searchBarPlaceholder": "Search by brand or model",
     "noProductsFound": "No products found",
+    "noProductsAvailable": "No products available",
     "breadcrumb": {
       "label": "Product list"
+    },
+    "loader": { 
+      "message": "Loading products..." 
     }
   },
   "productDetails": {
@@ -33,7 +37,11 @@
     "backToProducts": "Back to the product list",
     "notExist": "Product not exist",
     "breadcrumb": {
-      "label": "Product details"
+      "productList": "Product list",
+      "productDetail": "Product details"
+    },
+    "loader": { 
+      "message": "Loading product details..." 
     }
   },
   "productActions": {

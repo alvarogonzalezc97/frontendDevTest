@@ -3,7 +3,12 @@ import { describe, it, expect, vi } from 'vitest'
 import SearchBar from './SearchBar'
 
 function renderSearchBar(props = {}) {
-  return render(<SearchBar onSearch={props.onSearch} placeholder={props.placeholder} />)
+  return render(
+    <SearchBar
+      onSearch={props.onSearch}
+      placeholder={props.placeholder}
+    />
+  )
 }
 
 describe('SearchBar', () => {

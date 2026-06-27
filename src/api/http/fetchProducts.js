@@ -14,7 +14,9 @@ export async function fetchProductDetails(id) {
   const res = await fetch(`${API_BASE_URL}/api/product/${id}`)
 
   if (!res.ok) {
-    throw new Error('Error fetching products')
+    const error = new Error('Error fetching product details')
+    error.status = res.status
+    throw error
   }
 
   return res.json()

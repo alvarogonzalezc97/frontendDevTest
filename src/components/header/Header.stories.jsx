@@ -1,4 +1,5 @@
 import { MemoryRouter } from 'react-router'
+import { useTranslation } from 'react-i18next'
 import Header from './Header'
 
 export default {
@@ -33,8 +34,18 @@ export default {
 }
 
 export const header = {
-  render: (args) => 
-    <MemoryRouter>
-        <Header {...args} />
-    </MemoryRouter>
+  render: (args) => {
+    const { t } = useTranslation()
+    return (
+      <MemoryRouter>
+        <Header
+          {...args}
+          breadcrumbs={[
+            { label: t('productDetails.breadcrumb.productList'), to: '/' },
+            { label: t('productDetails.breadcrumb.productDetail') }
+          ]}
+        />
+      </MemoryRouter>
+    )
+  }
 }

@@ -6,6 +6,7 @@ import { getProducts } from '../../api/product.api'
 import ProductCard from '../../components/product/listCard/ProductCard'
 import SearchBar from '../../components/search/SearchBar'
 import NotFound from '../../components/notFound/NotFound'
+import Loader from '../../components/loader/Loader'
 import './ProductList.scss'
 
 function ProductList() {
@@ -13,9 +14,14 @@ function ProductList() {
   const { cart } = useCart()
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
+
 
   useEffect(() => {
-    getProducts().then(setProducts).catch(console.error)
+    getProducts()
+      .then(setProducts)
+      .catch(console.error)
+      .finally(() => setIsLoading(false))
   }, [])
 
   const filteredProducts = useMemo(
@@ -31,28 +37,42 @@ function ProductList() {
   return (
     <div className="product-list-container">
       <Header
-        breadcrumbs={[{ label: t('productList.breadcrumb.label'), to: '/' }]}
+        breadcrumbs={[{ label: t('productList.breadcrumb.label') }]}
         cartItems={cart.length}
       />
 
-      <div className="product-list-content">
-        <SearchBar
-          className="product-list-searchBar"
-          placeholder={t('productList.searchBarPlaceholder')}
-          onSearch={setSearch}
+      {isLoading ? (
+        <Loader
+          className='product-list-loader'
+          message={t('productList.loader.message')} 
         />
+      ): (
+        products.length > 0 ?(
+        <div className="product-list-content">
+          <SearchBar
+            className="product-list-searchBar"
+            placeholder={t('productList.searchBarPlaceholder')}
+            onSearch={setSearch}
+          />
 
-        <div className="product-grid">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
-          ) : (
-            <NotFound
-              className="product-list-notFound"
-              message={t('productList.noProductsFound')}
-            />
-          )}
+          <div className="product-grid">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => <ProductCard key={product.id} product={product} />)
+            ) : (
+              <NotFound
+                className="product-list-notFound"
+                message={t('productList.noProductsFound')}
+              />
+            )}
+          </div>
         </div>
-      </div>
+        ):(
+          <NotFound
+            className="product-list-notAvailable" 
+            message={t('productList.noProductsAvailable')} />
+        )
+      )
+      }
     </div>
   )
 }

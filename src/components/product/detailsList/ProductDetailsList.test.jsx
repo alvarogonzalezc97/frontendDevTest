@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
-import ProductDetailsCard from './ProductDetailsCard'
+import ProductDetailsList from './ProductDetailsList'
 
 const mockFields = [
   { label: 'Brand', value: 'Acer' },
@@ -8,19 +8,19 @@ const mockFields = [
   { label: 'Price', value: '350' },
 ]
 
-function renderProductDetailsCard(props = {}) {
-  return render(<ProductDetailsCard fields={mockFields} {...props} />)
+function renderProductDetailsList(props = {}) {
+  return render(<ProductDetailsList fields={mockFields} {...props} />)
 }
 
-describe('ProductDetailsCard', () => {
+describe('ProductDetailsList', () => {
   it('renders list', () => {
-    renderProductDetailsCard()
+    renderProductDetailsList()
 
-    expect(screen.getByTestId('product-details-card')).toBeInTheDocument()
+    expect(screen.getByTestId('product-details-list')).toBeInTheDocument()
   })
 
   it('renders field labels', () => {
-    renderProductDetailsCard()
+    renderProductDetailsList()
 
     expect(screen.getByText('Brand:')).toBeInTheDocument()
     expect(screen.getByText('Model:')).toBeInTheDocument()
@@ -28,7 +28,7 @@ describe('ProductDetailsCard', () => {
   })
 
   it('renders field values', () => {
-    renderProductDetailsCard()
+    renderProductDetailsList()
 
     expect(screen.getByText('Acer')).toBeInTheDocument()
     expect(screen.getByText('Predator 8')).toBeInTheDocument()
@@ -36,7 +36,7 @@ describe('ProductDetailsCard', () => {
   })
 
   it('does not render fields with null value', () => {
-    renderProductDetailsCard({
+    renderProductDetailsList({
       fields: [{ label: 'Battery', value: null }],
     })
 
@@ -44,7 +44,7 @@ describe('ProductDetailsCard', () => {
   })
 
   it('does not render fields with undefined value', () => {
-    renderProductDetailsCard({
+    renderProductDetailsList({
       fields: [{ label: 'Battery', value: undefined }],
     })
 
@@ -52,7 +52,7 @@ describe('ProductDetailsCard', () => {
   })
 
   it('does not render fields with empty string value', () => {
-    renderProductDetailsCard({
+    renderProductDetailsList({
       fields: [{ label: 'Battery', value: '' }],
     })
 
@@ -60,7 +60,7 @@ describe('ProductDetailsCard', () => {
   })
 
   it('renders array values as list', () => {
-    renderProductDetailsCard({
+    renderProductDetailsList({
       fields: [{ label: 'Cameras', value: ['5 MP', '2 MP'] }],
     })
 
@@ -69,7 +69,7 @@ describe('ProductDetailsCard', () => {
   })
 
   it('does not render empty array values', () => {
-    renderProductDetailsCard({
+    renderProductDetailsList({
       fields: [{ label: 'Cameras', value: ['', null, undefined] }],
     })
 

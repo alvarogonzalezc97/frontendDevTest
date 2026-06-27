@@ -38,9 +38,8 @@ export default {
   },
 }
 export const Actions = {
-  render: (args) => {
-    return <ProductActions {...args} />
-  },
+  render: (args) =>
+    <ProductActions {...args} />
 }
 
 export const DisabledState = {
@@ -48,7 +47,6 @@ export const DisabledState = {
     colors: [],
     storages: [],
   },
-  render: (args) => {
-    return <ProductActions {...args} />
-  },
+  render: (args) =>
+    <ProductActions {...args} />
 }

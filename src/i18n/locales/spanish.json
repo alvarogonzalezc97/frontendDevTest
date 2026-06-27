@@ -13,8 +13,12 @@
   "productList": {
     "searchBarPlaceholder": "Buscar por marca o modelo",
     "noProductsFound": "No se han encontrado productos",
+    "noProductsAvailable": "Productos no disponibles",
     "breadcrumb": {
       "label": "Lista de productos"
+    },
+    "loader": { 
+      "message": "Cargando productos..." 
     }
   },
   "productDetails": {
@@ -33,7 +37,11 @@
     "backToProducts": "Volver a la lista de productos",
     "notExist": "El producto no existe",
     "breadcrumb": {
-      "label": "Detalles del producto"
+      "productList": "Lista de productos",
+      "productDetail": "Detalles del producto"
+    },
+    "loader": { 
+      "message": "Cargando detalle del producto..." 
     }
   },
   "productActions": {
