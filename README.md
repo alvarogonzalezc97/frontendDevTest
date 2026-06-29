@@ -30,6 +30,10 @@ Single Page Application for browsing and purchasing mobile devices.
 ```
 git clone https://github.com/alvarogonzalezc97/frontendDevTest.git
 ```
+Move to the cloned project using
+```
+cd frontendDevTest
+```
 
 ### Install dependencies
 
